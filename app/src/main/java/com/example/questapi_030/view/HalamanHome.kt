@@ -56,7 +56,6 @@ fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     navigateToItemUpdate: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (Int) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -87,7 +86,7 @@ fun HomeScreen(
             statusUiSiswa = viewModel.listSiswa,
             retryAction = { viewModel.loadSiswa() },
             modifier = Modifier.padding(innerPadding),
-            onDetailClick = onDetailClick
+            onSiswaClick = navigateToItemUpdate
         )
     }
 }
@@ -97,7 +96,7 @@ fun HomeStatus(
     statusUiSiswa: StatusUiSiswa,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (Int) -> Unit
+    onSiswaClick: (Int) -> Unit
 ) {
     when (statusUiSiswa) {
         is StatusUiSiswa.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
@@ -110,7 +109,7 @@ fun HomeStatus(
                 ListSiswa(
                     itemSiswa = statusUiSiswa.siswa,
                     modifier = modifier.fillMaxWidth(),
-                    onDetailClick = { onDetailClick(it.id) }
+                    onSiswaClick = { onSiswaClick(it.id) }
                 )
             }
         }
@@ -143,7 +142,7 @@ fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
 fun ListSiswa(
     itemSiswa: List<DataSiswa>,
     modifier: Modifier = Modifier,
-    onDetailClick: (DataSiswa) -> Unit
+    onSiswaClick: (DataSiswa) -> Unit
 ) {
     LazyColumn(
         modifier = modifier,
@@ -155,7 +154,7 @@ fun ListSiswa(
                 siswa = siswa,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { onDetailClick(siswa) }
+                    .clickable { onSiswaClick(siswa) }
             )
         }
     }
