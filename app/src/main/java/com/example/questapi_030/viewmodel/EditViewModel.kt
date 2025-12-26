@@ -28,3 +28,7 @@ RepositoryDataSiswa
                 .toUiStateSiswa(true)
         }
     }
+    fun updateUiState(detailSiswa: DetailSiswa) {
+        uiStatesSiswa =
+            UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(detailSiswa))
+    }
