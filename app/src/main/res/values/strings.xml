@@ -1,5 +1,4 @@
     <resources>
-    <string name="app_name">QuestAPI_030</string>
         <string name="app_name">Data MySQL</string>
         <string name="entry_siswa">Tambah Siswa</string>
         <string name="back">back</string>
