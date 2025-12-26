@@ -37,5 +37,16 @@ RepositoryDataSiswa
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
         }
     }
+    suspend fun editSatuSiswa(){
+        if (validasiInput(uiStatesSiswa.detailSiswa)){
+            val call: Response<Void> = repositoryDataSiswa.editSatuSiswa(idSiswa, uiStatesSiswa
+                .detailSiswa.toDataSiswa())
+
+            if (call.isSuccessful){
+                println("Update Sukses : ${call.message()}")
+            }else{
+                println("Update Error : ${call.errorBody()}")
+            }
+        }
     }
 }
