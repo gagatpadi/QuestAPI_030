@@ -13,3 +13,16 @@ interface ContainerApp {
     val repositoryDataSiswa : RepositoryDataSiswa
 }
 
+class DefaultContainerApp : ContainerApp {
+    private val baseUrl = "http://10.0.2.2/umyTI/"
+
+    val logging = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+
+    val klien = OkHttpClient.Builder()
+        .addInterceptor(logging)
+        .build()
+
+
+}
