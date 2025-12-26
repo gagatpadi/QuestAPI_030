@@ -26,3 +26,6 @@ RepositoryDataSiswa
 ): ViewModel() {
 
     private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetail.itemIdArg])
+    var statusUIDetail:StatusUIDetail by mutableStateOf(StatusUIDetail.Loading)
+        private set
+
