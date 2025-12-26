@@ -32,3 +32,10 @@ RepositoryDataSiswa
         uiStatesSiswa =
             UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(detailSiswa))
     }
+    private fun validasiInput(uiState: DetailSiswa = uiStatesSiswa.detailSiswa ): Boolean {
+        return with(uiState) {
+            nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
+        }
+    }
+    }
+}
