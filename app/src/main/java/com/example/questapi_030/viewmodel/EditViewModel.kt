@@ -21,3 +21,10 @@ RepositoryDataSiswa
     var uiStatesSiswa by mutableStateOf(UIStateSiswa())
         private set
 
+    private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetail.itemIdArg])
+    init {
+        viewModelScope.launch {
+            uiStatesSiswa = repositoryDataSiswa.getSatuSiswa(idSiswa)
+                .toUiStateSiswa(true)
+        }
+    }
