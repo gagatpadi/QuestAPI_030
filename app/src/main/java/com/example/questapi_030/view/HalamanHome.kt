@@ -40,12 +40,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.questapi_030.R
-import com.example.questapi_030.model.DataSiswa
 import com.example.questapi_030.modeldata.DataSiswa
-import com.example.questapi_030.uicontroller.PenyediaViewModel
 import com.example.questapi_030.uicontroller.route.DestinasiNavigasi
 import com.example.questapi_030.viewmodel.HomeViewModel
-import com.example.questapi_030.viewmodel.HomeUiState
 import com.example.questapi_030.viewmodel.StatusUiSiswa
 import com.example.questapi_030.viewmodel.provider.PenyediaViewModel
 
@@ -57,6 +54,7 @@ object DestinasiHome : DestinasiNavigasi {
 @Composable
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
+    navigateToItemUpdate: (Int) -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (Int) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -134,7 +132,7 @@ fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = stringResource(R.string.loading_failed))
+        Text(text = stringResource(R.string.loading))
         Button(onClick = retryAction) {
             Text(text = stringResource(R.string.retry))
         }

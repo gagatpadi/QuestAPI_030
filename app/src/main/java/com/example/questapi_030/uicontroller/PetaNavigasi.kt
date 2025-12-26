@@ -11,6 +11,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.questapi_030.view.DestinasiEntry
 import com.example.questapi_030.view.DestinasiHome
+import com.example.questapi_030.uicontroller.route.DestinasiEdit
+import com.example.questapi_030.view.DetailSiswaScreen
+import com.example.questapi_030.view.EditSiswaScreen
+import com.example.questapi_030.view.EntrySiswaScreen
+import com.example.questapi_030.uicontroller.route.DestinasiDetail
 import com.example.questapi_030.view.EntrySiswaScreen
 import com.example.questapi_030.view.HomeScreen
 
