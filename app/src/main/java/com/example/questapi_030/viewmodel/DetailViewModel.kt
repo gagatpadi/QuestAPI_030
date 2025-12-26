@@ -29,3 +29,7 @@ RepositoryDataSiswa
     var statusUIDetail:StatusUIDetail by mutableStateOf(StatusUIDetail.Loading)
         private set
 
+    init {
+        getSatuSiswa()
+    }
+
